@@ -5,41 +5,32 @@ import LocationList from './LocationList';
 import AnimalList from './Animals';
 import OwnersList from './OwnersList'
 
-class ApplicationViews extends Component {
-    employeesFromAPI = [
-        { id: 1, name: "Jessica Younker" },
-        { id: 2, name: "Jordan Nelson" },
-        { id: 3, name: "Zoe LeBlanc" },
-        { id: 4, name: "Blaise Roberts" }
-    ]
+export default class ApplicationViews extends Component {
 
-    // This will eventually get pulled from the API
-    locationsFromAPI = [
-        { id: 1, name: "Nashville North", address: "500 Circle Way" },
-        { id: 2, name: "Nashville South", address: "10101 Binary Court" }
-    ]
-
-    animalsFromAPI = [
-        { id: 1, name: "Fluffy", type: "Cat", ownerId: 2 },
-        { id: 2, name: "Bingo", type: "Dog", ownerId: 6 },
-        { id: 3, name: "Arthur", type: "Aardvark", ownerId: 1 },
-        { id: 4, name: "Peter", type: "Rabbit", ownerId: 3 }
-    ]
-
-    ownersFromAPI = [
-        { id: 1, name: "Ryan Tanay", phone: "555-5555" },
-        { id: 2, name: "Emma Beaton", phone: "555-1234" },
-        { id: 3, name: "Dani Adkins", phone: "555-4321" },
-        { id: 4, name: "Adam Oswalt", phone: "555-6789" },
-        { id: 5, name: "Fletcher Bangs", phone: "555-9876" },
-        { id: 6, name: "Angela Lee", phone: "555-9124" }
-    ]
 
     state = {
-        owners: this.ownersFromAPI,
-        employees: this.employeesFromAPI,
-        locations: this.locationsFromAPI,
-        animals: this.animalsFromAPI
+        owners: [],
+        employees: [],
+        locations: [],
+        animals: []
+    }
+
+    componentDidMount() {
+        const newState = {}
+
+        fetch("http://localhost:5002/animals")
+            .then(r => r.json())
+            .then(animals => newState.animals = animals)
+            .then(() => fetch("http://localhost:5002/employees")
+            .then(r => r.json()))
+            .then(employees => newState.employees = employees)
+            .then(() => fetch("http://localhost:5002/locations")
+            .then(r => r.json()))
+            .then(locations => newState.locations = locations)
+            .then(() => fetch("http://localhost:5002/owners")
+            .then(r => r.json()))
+            .then(owners => newState.owners = owners)
+            .then(() => this.setState(newState))
     }
 
     render() {
@@ -61,5 +52,3 @@ class ApplicationViews extends Component {
         );
     }
 }
-
-export default ApplicationViews
