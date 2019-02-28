@@ -8,6 +8,11 @@ class OwnersList extends Component {
                     this.props.owners.map(owner =>
                         <div key={`ownerList--${owner.id}`}>
                             {owner.name} / Phone: {owner.phone}
+                            <button
+                                onClick={() =>
+                                    this.props.deleteOwner(owner.id)}>
+                                Delete
+                            </button>
                         </div>
                     )
                 }
