@@ -38,15 +38,21 @@
     },
     {
       "id": 3,
-      "name": "Arthur",
-      "type": "Aardvark",
-      "ownerId": 1
+      "name": "Hampton",
+      "type": "Hamster",
+      "ownerId": 3
     },
     {
       "id": 4,
-      "name": "Peter",
-      "type": "Rabbit",
-      "ownerId": 3
+      "name": "Porky",
+      "type": "Pig",
+      "ownerId": 4
+    },
+    {
+      "id": 5,
+      "name": "Bingo",
+      "type": "Doggo",
+      "ownerId": 1
     }
   ],
   "owners": [
