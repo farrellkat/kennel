@@ -6,5 +6,14 @@ export default {
     },
     getAll() {
         return fetch(`${settings.remoteURL}/employees`).then(e => e.json())
-    }
+    },
+    addEmployee(newEmployee) {
+        return fetch(`${settings.remoteURL}/employees`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newEmployee)
+        }).then(data => data.json())
+      }
 }
