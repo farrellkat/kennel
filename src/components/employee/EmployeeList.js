@@ -16,9 +16,9 @@ class EmployeeList extends Component {
             <section className="employees">
                 {
                     this.props.employees.map(employee =>
-                        <div key={`employee--${employee.id}`}>
+                        <div key={`employee--${employee.id}`} className="card">
                             {employee.name}
-                        <button
+                        <button className="btn btn-danger"
                             onClick={()=>
                                 this.props.fireEmployee(employee.id)
                             }>

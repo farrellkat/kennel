@@ -14,12 +14,13 @@ class OwnersList extends Component {
                         New Owner
                     </button>
                 </div>
-                <section key="OwnersSection">
+                <section key="OwnersSection" className="owners">
                     {
                         this.props.owners.map(owner =>
-                            <div key={`ownerList--${owner.id}`}>
-                                {owner.name} / Phone: {owner.phone}
-                                <button
+                            <div key={`ownerList--${owner.id}`} className="card">
+                                <h5>{owner.name}</h5>
+                                <p>Phone: {owner.phone}</p>
+                                <button className="btn btn-danger"
                                     onClick={() =>
                                         this.props.deleteOwner(owner.id)}>
                                     Delete

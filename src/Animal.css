@@ -9,6 +9,8 @@
     margin: 50px 0px 0px 0px;
   }
 
+.owners,
+.employees,
 .animals {
     display: flex;
     justify-content: space-evenly;
@@ -21,6 +23,8 @@
 
 .card {
     width: 10rem;
+    padding: 5px;
+    text-align: center;
 }
 
 .card-title {
@@ -41,4 +45,5 @@
     display: flex;
     justify-content: space-evenly;
     margin: 0 0 10px 0;
+    border-radius: 5px;
   }
